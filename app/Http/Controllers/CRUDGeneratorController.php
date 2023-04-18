@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Highlight\Highlighter;
 
 class CRUDGeneratorController extends Controller
 {
     public function generate(Request $request) {
         if($request->ajax()) {
+            $highlighter = new Highlighter();
             $route ="//use App\Http\Controllers\\". $request->input('model') . "Controller;
 Route::resources([
     '" . Str::snake($request->input('model'), "-")  . "'=>" . $request->input('model') ."Controller::class
@@ -112,17 +114,20 @@ class UserModelController extends Controller
     }
 }";
 
-$model = "namespace App\Models;
+$model = "<?php
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class e7c2w4AjcS extends Model
 {
     use HasFactory;
     protected \$guarded = ['id'];
-    protected \$table = 'user_model';
-}";
+    protected \$table = 'e7c2w4_ajc_s';
+}
+";
 
 $migration = "use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -195,19 +200,45 @@ function delete_item(form) {
     }
 }
 </script>";
-$create = "test";
+$create = "@if (session('error'))
+<div class=\"alert alert-danger pb-0\" role=\"alert\">
+    <h4 class=\"alert-heading\">Terjadi Masalah</h4>
+    <p>{{ session('error') }}</p>
+</div>
+@endif
+<form action=\"{{ route('e7c2w4-ajc-s.store') }}\" method=\"post\">
+@csrf
+<div class=\"card\">
+    <div class=\"card-body\">
+        <div class=\"row row-cols-1 row-cols-lg-2\">
+                            
+            <div class=\"col\">
+                <div class=\"mb-3\">
+                    <label for=\"hAHPBsRuGo\" class=\"form-label\">2QRTtgqH0K</label>
+                    <input type=\"number\" class=\"form-control @error('hAHPBsRuGo') is-invalid @enderror\" name=\"hAHPBsRuGo\" id=\"hAHPBsRuGo\" placeholder=\"Masukkan 2QRTtgqH0K\" value=\"{{ old('hAHPBsRuGo') }}\">
+                    @error('hAHPBsRuGo')<span class=\"text-danger d-block\">{{ \$message }}</span>@enderror
+                </div>
+            </div>
+
+        </div>
+        <div class=\"d-flex justify-content-end\">
+            <button class=\"btn btn-primary\">Simpan</button>
+        </div>
+    </div>
+</div>
+</form>";
 $edit = "test";
 
             $response = [
                 'data' => [
                     'command' => 'php artisan make:model ' . $request->input('model') . 'Model -mcr',
                     'route' => $route,
-                    'controller' => $controller,
-                    'model' => $model,
-                    'migration' => $migration,
-                    'index' => highlight_string($index, true),
-                    'create' => $create,
-                    'edit' => $edit,
+                    'controller' => $highlighter->highlight('php', $controller)->value,
+                    'model' => $highlighter->highlight('php', $model)->value,
+                    'migration' => $highlighter->highlight('php', $migration)->value,
+                    'index' => $highlighter->highlight('html', $index)->value,
+                    'create' => $highlighter->highlight('html', $create)->value,
+                    'edit' => $highlighter->highlight('html', $edit)->value,
                 ]
             ];
             return response()->json($response);

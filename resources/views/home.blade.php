@@ -75,7 +75,7 @@
                             <span>Laravel CRUD Generator | Laravel 9 Bootstrap 5</span>
                         </div>
                         <div class="col mt-3 mt-lg-0 d-flex justify-content-lg-end">
-                            <div><button class="btn btn-warning" onclick="window.history.back()">Kembali</button></div>
+                            <div><button class="btn btn onclick="window.history.back()">Kembali</button></div>
                         </div>
                     </div>
                     <form action="/laravel-crud/generate" method="post" id="gen_form">
@@ -151,10 +151,8 @@
                                     </table>
                                 </div>
                                 <div class="d-flex justify-content-end mt-2">
-                                    <button type="button" class="btn btn-primary me-2"
-                                        onclick="add_coloumn()">Tambah Kolom</button>
-                                    <button type="button" class="btn btn-success"
-                                        onclick="gen_form(event,'#gen_form')">Generate</button>
+                                    <button type="button" class="btn btn-primary me-2" onclick="add_coloumn()">Tambah Kolom</button>
+                                    <button type="button" class="btn btn-success" onclick="gen_form(event,'#gen_form')">Generate</button>
                                 </div>
                             </div>
                         </div>
@@ -166,64 +164,56 @@
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Command</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_command')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_command')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-php" id="result_command">Kode Akan Muncul Disini</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Route</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_route')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_route')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-php" id="result_route">Kode Akan Muncul Disini</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Controller</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_controller')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_controller')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-php" id="result_controller">Kode Akan Muncul Disini</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Model</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_model')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_model')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-php" id="result_model">Kode Akan Muncul Disini</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Migration</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_migration')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_migration')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-php" id="result_migration">Kode Akan Muncul Disini</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Index Table</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_index')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_index')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-html" id="result_index">&lt;div&gt;Kode Akan Muncul Disini&lt;/div&gt;</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Create Form</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_create')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_create')">Copy</button>
                                     </div>
-                                    <pre><code class="code_base language-html" id="result_create">&lt;div&gt;Kode Akan Muncul Disini&lt;/div&gt;</code></pre>
+                                    <pre><code class="code_base language-php" id="result_create">&lt;div&gt;Kode Akan Muncul Disini&lt;/div&gt;</code></pre>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex justify-content-between mb-2">
                                         <b>Edit Form</b>
-                                        <button class="btn btn-success btn-sm"
-                                            onclick="copyToClipboard(event,'#result_edit')">Copy</button>
+                                        <button class="btn btn-success btn-sm" onclick="copyToClipboard(event,'#result_edit')">Copy</button>
                                     </div>
                                     <pre><code class="code_base language-html" id="result_edit">&lt;div&gt;Kode Akan Muncul Disini&lt;/div&gt;</code></pre>
                                 </div>
@@ -259,8 +249,7 @@
                                     onkeyup="space_to_stand(event)">
                             </anjay2>
                             <anjay2 class="text-nowrap">
-                                <i class="bi bi-trash3 fs-3 text-danger"
-                                    onclick="remove_coloumn('#tr_increment')"></i>
+                                <i class="bi bi-trash3 fs-3 text-danger" onclick="remove_coloumn('#tr_increment')"></i>
                             </anjay2>
                         </anjay1>
                     </div>
